@@ -11,17 +11,13 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return  MaterialApp(
-      debugShowCheckedModeBanner: false,
+    return MaterialApp(
       theme: ThemeData(
-       primaryColor: const Color(0XFF075E54),
-       
-      // secondaryHeaderColor: const Color(0xFF128C7E),
-       
-       
+        fontFamily: 'OpenSans',
       ),
-      home:const HomeScreen(),
-  
+      debugShowCheckedModeBanner: false,
+      title: 'Whatsapp Flutter',
+      home: HomeScreen(),
     );
   }
 }

@@ -1,6 +1,7 @@
 // ignore_for_file: unused_field
 
 import 'package:flutter/material.dart';
+import 'package:flutter_whatsapp/pages/Chat_page.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -14,7 +15,7 @@ class _HomeScreenState extends State<HomeScreen>
   late TabController _controller;
   @override
   void initState() {
-    _controller = TabController(length: 4, vsync: this, initialIndex: 0);
+    _controller = TabController(length: 4, vsync: this, initialIndex: 1);
     super.initState();
   }
 
@@ -29,20 +30,53 @@ class _HomeScreenState extends State<HomeScreen>
             onPressed: () {},
             icon: const Icon(Icons.search),
           ),
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.more_vert),
+          PopupMenuButton<String>(
+            onSelected: (val) {
+              print(val);
+            },
+            itemBuilder: (BuildContext context) {
+              return [
+                const PopupMenuItem(
+                  value: "New group",
+                  child: Text("New group"),
+                ),
+                const PopupMenuItem(
+                  value: "New broadcast",
+                  child: Text("New broadcast"),
+                ),
+                const PopupMenuItem(
+                  value: "Whatsapp Web",
+                  child: Text("Whatsapp Web"),
+                ),
+                const PopupMenuItem(
+                  value: "Starred messages",
+                  child: Text("Starred messages"),
+                ),
+                const PopupMenuItem(
+                  value: "Settings",
+                  child: Text("Settings"),
+                ),
+              ];
+            },
           ),
         ],
-        bottom:  TabBar(
-          controller: _controller,
-          tabs:const [
-            Icon(Icons.camera_alt),
-            Text('CHATS'),
-            Text('STATUS'),
-            Text('CALLs')
-          ]),
+        bottom: TabBar(
+          indicatorColor: Colors.white,
+          controller: _controller, tabs: const [
+          Icon(Icons.camera_alt),
+          Text('CHATS'),
+          Text('STATUS'),
+          Text('CALLS')
+        ]),
       ),
+      body: TabBarView(
+        
+        controller: _controller, children: const [
+        Text('Camera'),
+        ChatPage(),
+        Text('Status'),
+        Text('Calls'),
+      ]),
     );
   }
 }
