@@ -27,14 +27,14 @@ class CustomCard extends StatelessWidget {
           backgroundColor: Colors.blueGrey,
           radius: 30,
           child: SvgPicture.asset(
-            chatModel.isGroup ? "assets/groups.svg" : "assets/person.svg",
+            chatModel.isGroup! ? "assets/groups.svg" : "assets/person.svg",
             color: Colors.white,
             width: 37,
             height: 37,
           ),
         ),
         title: Text(
-          chatModel.name,
+          chatModel.name.toString(),
           style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
         ),
         subtitle: Row(
@@ -42,12 +42,12 @@ class CustomCard extends StatelessWidget {
             const Icon(Icons.done_all),
             const SizedBox(width: 3),
             Text(
-              chatModel.currentMessage,
-              style: TextStyle(fontSize: 13),
+              chatModel.currentMessage.toString(),
+              style: const TextStyle(fontSize: 13),
             ),
           ],
         ),
-        trailing: Text(chatModel.time),
+        trailing: Text(chatModel.time.toString()),
       ),
     );
   }

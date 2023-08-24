@@ -1,13 +1,16 @@
 class ChatModel {
-  late String name;
-  late String icon;
-  late String time;
-  late String currentMessage;
-  late bool isGroup;
-  ChatModel(
-      {required this.name,
-      required this.icon,
-      required this.time,
-      required this.currentMessage,
-      required this.isGroup});
+  ChatModel({
+    this.name,
+    this.icon,
+    this.time,
+    this.currentMessage,
+    this.isGroup,
+    this.status,
+  });
+  final String? name;
+  final String? icon;
+  final String? time;
+  final String? currentMessage;
+  final bool? isGroup;
+  final String? status;
 }

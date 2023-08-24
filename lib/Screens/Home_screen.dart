@@ -1,7 +1,9 @@
 // ignore_for_file: unused_field
 
 import 'package:flutter/material.dart';
+import 'package:flutter_whatsapp/pages/Call_page.dart';
 import 'package:flutter_whatsapp/pages/Chat_page.dart';
+import 'package:flutter_whatsapp/pages/Status_page.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -61,21 +63,20 @@ class _HomeScreenState extends State<HomeScreen>
           ),
         ],
         bottom: TabBar(
-          indicatorColor: Colors.white,
-          controller: _controller, tabs: const [
-          Icon(Icons.camera_alt),
-          Text('CHATS'),
-          Text('STATUS'),
-          Text('CALLS')
-        ]),
+            indicatorColor: Colors.white,
+            controller: _controller,
+            tabs: const [
+              Icon(Icons.camera_alt),
+              Text('CHATS'),
+              Text('STATUS'),
+              Text('CALLS')
+            ]),
       ),
-      body: TabBarView(
-        
-        controller: _controller, children: const [
+      body: TabBarView(controller: _controller, children: const [
         Text('Camera'),
         ChatPage(),
-        Text('Status'),
-        Text('Calls'),
+        StatusPage(),
+        CallPage(),
       ]),
     );
   }

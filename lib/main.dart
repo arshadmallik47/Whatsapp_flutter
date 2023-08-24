@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       ),
       debugShowCheckedModeBanner: false,
       title: 'Whatsapp Flutter',
-      home: HomeScreen(),
+      home: const HomeScreen(),
     );
   }
 }
